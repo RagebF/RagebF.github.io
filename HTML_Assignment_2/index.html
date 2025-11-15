@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Laurea University — Library Assistant Job Application</title>
+
+    <style>
+
+      /* 1) Design tokens */
+      :root {
+        --bg:        #f7f7f8;
+        --card:      #ffffff;
+        --ink:       #111827;
+        --muted:     #6b7280;
+        --line:      #e5e7eb;
+        --accent:    #0ea5e9;
+      }
+
+      /* 2) Base / normalize */
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+              Helvetica, Arial;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      h1, h2 { margin: .25rem 0 1rem 0; line-height: 1.25; }
+      img, embed { max-width: 100%; display: block; }
+      header, footer { background: #eef2f7; border-bottom: 1px solid var(--line); }
+
+      /* 3) Layout primitives */
+      .wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
+      .section-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+      .form-narrow { max-width: 620px; }
+
+      /* 4) Components */
+      nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; }
+      nav a { text-decoration: none; color: #0369a1; }
+
+      label { display: block; font-weight: 600; margin: .35rem 0; }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      input[type="range"],
+      select,
+      textarea {
+        width: 100%;
+        padding: .55rem .7rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #f9fafb;
+      }
+      input[readonly] { background: #f3f4f6; color: var(--muted); }
+      input[disabled] { background: #f3f4f6; color: #9ca3af; cursor: not-allowed; }
+
+      fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin: .75rem 0; }
+      legend   { font-weight: 700; }
+
+      .btn {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: .6rem .9rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      blockquote { margin: 0; padding: 12px 14px; background: #e0f2fe; border-left: 4px solid var(--accent); border-radius: 6px; }
+
+      /* 5) Utilities */
+      .row  { margin: .75rem 0; }
+      .muted{ font-size: .85rem; color: var(--muted); }
+      .footerbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+      .kbd { padding: .1rem .35rem; border: 1px solid var(--line); border-radius: 6px; background: #f8fafc; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- <header> with <nav> and links -->
+
+    <header>
+      <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <h1>Laurea University of Applied Sciences</h1>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#form">Application Form</a></li>
+            <li><a href="#quote">Quote</a></li>
+            <li><a href="#media">Laurea Media</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+
+      <!-- Mirrors Output Example order; scenario changed to Library role. -->
+      <section id="form" class="section-card form-narrow">
+        <h2>Library Assistant Job Application</h2>
+
+        <!-- <form> uses action + method; autocomplete enabled -->
+        <form
+          id="applicationForm"
+          class="form"
+          action="https://httpbin.org/post"
+          method="post"
+          autocomplete="on"
+          aria-label="Library assistant job application"
+        >
+          <!-- Text inputs (name/email) with name, placeholder, required, minlength, maxlength, pattern -->
+          <div class="row">
+            <label for="fullName">Full Name *</label>
+            <input
+              id="fullName"
+              name="full_name"
+              type="text"
+              placeholder="e.g., Mira Korhonen"
+              required
+              aria-required="true"
+              minlength="2"
+              maxlength="60"
+            />
+          </div>
+
+          <div class="row">
+            <label for="email">Email *</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="you@student.laurea.fi"
+              required
+              minlength="6"
+              maxlength="120"
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="row">
+            <label for="password">Password *</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="8+ characters"
+              required
+              minlength="8"
+              maxlength="64"
+            />
+          </div>
+
+          <!-- Number input with min/max -->
+          <div class="row">
+            <label for="years">Years of Experience</label>
+            <input
+              id="years"
+              name="experience_years"
+              type="number"
+              min="0"
+              max="30"
+              value="1"
+            />
+          </div>
+
+          <!-- Range slider with min/max/step and live <output> -->
+          <div class="row">
+            <label for="salary">Expected Hourly Rate (€)</label>
+            <input
+              id="salary"
+              name="hourly_rate"
+              type="range"
+              min="10"
+              max="30"
+              step="1"
+              value="15"
+              oninput="rateOut.value=this.value"
+            />
+            <div class="muted">
+              Current: <output id="rateOut" for="salary">15</output> €/hour
+            </div>
+          </div>
+
+          <!-- Checkboxes -->
+          <fieldset>
+            <legend>Job Preferences</legend>
+            <label style="margin-left:1rem"><input type="checkbox" name="pref_evening"   value="evening"  /> Evening shifts</label>
+            <label style="margin-left:1rem"><input type="checkbox" name="pref_weekend"  value="weekend"  /> Weekends</label>
+            <label style="margin-left:1rem"><input type="checkbox" name="pref_archives" value="archives" /> Archive tasks</label>
+          </fieldset>
+
+          <!-- Radio buttons -->
+          <fieldset>
+            <legend>Job Type</legend>
+            <label><input type="radio" name="job_type" value="student_assistant" checked /> Student Assistant</label>
+            <label style="margin-left:1rem"><input type="radio" name="job_type" value="internship" /> Internship</label>
+          </fieldset>
+
+          <!-- Select with options -->
+          <div class="row">
+            <label for="dept">Department</label>
+            <select id="dept" name="department">
+              <option value="library_services"    selected>Library Services</option>
+              <option value="digital_resources">Digital Resources</option>
+              <option value="information_technology">Information Technology</option>
+              <option value="student_support">Student Support</option>
+            </select>
+          </div>
+
+          <!-- Datalist suggestions -->
+          <div class="row">
+            <label for="campus">Campus Preference</label>
+            <input id="campus" name="campus" type="text" list="campuses" placeholder="Start typing…" />
+            <datalist id="campuses">
+              <option value="Leppävaara"></option>
+              <option value="Otaniemi"></option>
+              <option value="Tikkurila"></option>
+              <option value="Hyvinkää"></option>
+              <option value="Remote"></option>
+            </datalist>
+          </div>
+
+          <!-- Textarea -->
+          <div class="row">
+            <label for="letter">Motivation Letter</label>
+            <textarea
+              id="letter"
+              name="cover_letter"
+              rows="6"
+              cols="40"
+              placeholder="Why are you a good fit for the Laurea Library team?"
+            ></textarea>
+          </div>
+
+          <!-- Disabled + Readonly demo -->
+          <div class="row">
+            <label for="refCode">Referral Code (disabled)</label>
+            <input id="refCode" name="ref_code" type="text" placeholder="Optional" disabled />
+          </div>
+          <div class="row">
+            <label for="appId">Application ID (readonly)</label>
+            <input id="appId" name="application_id" type="text" value="LAU‑LIB‑2025‑APP" readonly />
+          </div>
+
+          <!-- Submit -->
+          <div class="row">
+            <input class="btn" type="submit" value="Send Application" />
+          </div>
+        </form>
+      </section>
+
+      <!-- blockquote with motivational quote-->
+      <section id="quote" class="section-card form-narrow">
+        <h2>Quote</h2>
+        <blockquote cite="https://www.brainyquote.com/quotes/malcolm_x_103630">
+          “Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” – Malcolm X
+        </blockquote>
+      </section>
+
+      <!-- Extra element <embed> to include external media-->
+      <section id="media" class="section-card form-narrow">
+        <h2>Laurea Media</h2>
+        <embed
+          src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+          type="text/html"
+          width="100%"
+          height="315"
+        />
+      </section>
+      <!-- <article> section -->
+  <article class="section-card form-narrow" id="about-role" aria-label="About this job">
+    <h2>About This Role</h2>
+    <p>Library Assistants help manage circulation, support students searching for research material, maintain quiet study areas, and guide users in digital library tools.</p>
+  </article>
+
+  <!-- <aside> section -->
+  <aside class="section-card form-narrow" aria-label="Application tips">
+    <h2>Application Tips</h2>
+    <ul>
+      <li>Keep your motivation letter concise and meaningful.</li>
+      <li>Highlight previous teamwork or organizational experience.</li>
+      <li>If new to volunteering, focus on willingness to learn.</li>
+    </ul>
+  </aside>
+
+</main>
+
+    <!-- <footer> with a small nav -->
+    <footer>
+      <div class="wrap footerbar">
+        <small>© 2025 Laurea University of Applied Sciences · Demo assignment page.</small>
+        <nav aria-label="Footer">
+          <a href="#form">Application Form</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
