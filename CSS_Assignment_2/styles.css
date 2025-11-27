@@ -1,0 +1,367 @@
+/* Global styles & typography */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", Arial, sans-serif; /* font-family with fallback */
+    line-height: 1.6;                             /* typography line-height */
+    word-spacing: 0.06em;                         /* typography word-spacing */
+    background-color: hsl(210, 40%, 98%);         /* HSL color example */
+    color: #333333;                               /* Hex color example */
+}
+
+.page-wrapper {
+    min-height: 100vh;
+}
+
+/* Header & navigation */
+
+/* This header uses sticky positioning so it stays visible while scrolling */
+.site-header {
+    position: sticky; /* position: sticky requirement */
+    top: 0;
+    z-index: 10;      /* z-index requirement */
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #dddddd;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0;
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-weight: 600;                  /* numeric font-weight */
+    text-transform: uppercase;         /* text-transform requirement */
+    letter-spacing: 0.18em;            /* letter-spacing requirement */
+    font-size: 1rem;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline-block;             /* display: inline-block requirement */
+    margin-left: 1rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: navy;                       /* named color requirement */
+}
+
+.main-nav a.current,
+.main-nav a:hover {
+    color: #0f4c81;
+    border-bottom: 2px solid #0f4c81;
+}
+
+/* Hero section (index.html) */
+
+.hero {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 3rem 2rem;
+    background-color: rgba(15, 76, 129, 0.05); /* rgba color requirement */
+    border-radius: 0.75rem;
+    position: relative; /* relative positioning requirement */
+}
+
+.hero-text {
+    text-align: center;                /* text-align requirement */
+}
+
+.hero-title {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-size: 1.8rem;
+    margin-top: 0;
+    font-style: italic;                /* font-style requirement */
+}
+
+.hero-highlight {
+    font-weight: bold;
+}
+
+.hero-quote {
+    max-width: 520px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 1rem;
+    background-color: #dde8f7;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* About section (index.html) */
+
+/* This image uses float so text wraps around it */
+.about-image {
+    float: left;      /* float requirement */
+    width: 260px;
+    margin: 0 1.5rem 1rem 0;
+    border-radius: 0.5rem;
+}
+
+/* The clearfix class uses clear to avoid layout issues below floats */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;      /* clear requirement */
+}
+
+.about {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
+}
+
+.about-text h3 {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    margin-top: 0;
+}
+
+/* Info panels (index.html)*/
+
+.info-panels {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+    display: block;                    /* display: block requirement */
+}
+
+.panel {
+    display: inline-block;             /* inline-block again for layout */
+    vertical-align: top;
+    width: 31%;
+    min-width: 220px;
+    margin: 0 1% 1rem 0;
+    padding: 1.25rem 1rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.panel-theme {
+    border-top: 4px solid #0f4c81;
+}
+
+.panel-tip {
+    border-top: 4px solid #b85c38;
+}
+
+.panel-credits {
+    border-top: 4px solid #4c956c;
+}
+
+/* Gallery page layout */
+
+.gallery-main {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    padding: 0 2rem 3rem;
+}
+
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    text-align: center;
+}
+
+.thumb {
+    display: inline-block;             /* gallery images inline-block */
+    margin: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    width: 220px;
+}
+
+.thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.thumb figcaption {
+    padding: 0.75rem 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* This figure uses relative + absolute for overlay text */
+.featured-thumb {
+    position: relative;                /* relative positioning requirement */
+}
+
+.thumb-label {
+    position: absolute;                /* absolute positioning requirement */
+    top: 8px;                          /* top/left properties requirement */
+    left: 8px;
+    z-index: 2;                        /* z-index on overlay */
+    padding: 0.15rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Example static positioning (default) for comparison */
+.tall-thumb {
+    position: static;                  /* static positioning explicitly used */
+}
+
+/* Make gallery cards move when the mouse is over them */
+.thumb {
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    width: 220px;
+
+    cursor: pointer;                      /* shows hand cursor */
+    transition: transform 0.25s ease,     /* smooth movement */
+                box-shadow 0.25s ease;
+}
+
+.thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.25s ease;     /* smooth zoom on hover */
+}
+
+/* On hover: lift card and slightly zoom image */
+.thumb:hover {
+    transform: translateY(-8px);          /* move card up */
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+}
+
+.thumb:hover img {
+    transform: scale(1.04);              /* small zoom effect */
+
+}
+
+.question-box {
+    max-width: 650px;
+    margin: 3rem auto;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e5f1ff 0%, #d6e8fa 100%);
+    border: 2px solid #4a7ba5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 
+                inset 0 0 18px rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Decorative accent bar */
+.question-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: #4a7ba5;
+    border-radius: 10px;
+    margin-top: -2px;
+}
+
+/* Hover effect */
+.question-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.15),
+                inset 0 0 18px rgba(255, 255, 255, 0.5);
+}
+
+.question-box h3,
+.question-box strong {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    color: #2f3a4a;
+    margin-bottom: 0.8rem;
+}
+
+.question-box p {
+    color: #46525f;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+
+/* Footer */
+
+.site-footer {
+    background-color: #f0f0f0;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Back-to-top button */
+
+/* This button uses fixed positioning so it always stays in the corner */
+.back-to-top {
+    position: fixed;                   /* fixed positioning requirement */
+    right: 20px;                       /* right/bottom properties */
+    bottom: 20px;
+    z-index: 99;
+    text-decoration: none;
+    background-color: #0f4c81;
+    color: #ffffff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+
+/* Misc */
+
+a {
+    color: #0f4c81;
+}
+
+a:hover {
+    color: #b85c38;
+}
+
+@media (max-width: 768px) {
+    .panel {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav li {
+        margin: 0 0.5rem;
+    }
+}

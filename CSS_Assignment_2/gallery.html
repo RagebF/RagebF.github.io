@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <title>Urban Moments – Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        /* Internal CSS example
+           This highlight box uses background color with hsla for subtle emphasis. */
+        .question-box {
+            border: 2px dashed #0f4c81;
+            padding: 1rem;
+            margin: 2rem auto;
+            max-width: 540px;
+            background-color: hsla(210, 60%, 90%, 0.9);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="header-inner">
+                <h1 class="logo">Urban Moments</h1>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gallery.html" class="current">Gallery</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="gallery-main">
+            <section class="gallery-intro">
+                <h2>Cities &amp; Landscapes</h2>
+                <p>
+                    Below is a small collection of city photographs. Replace the image
+                    file names with your own pictures or royalty-free images.
+                </p>
+            </section>
+
+            <section class="gallery-grid clearfix">
+                <!-- Each figure uses inline-block or float in CSS -->
+
+                <figure class="thumb featured-thumb">
+                    <!-- This label is absolutely positioned on top of the image in CSS -->
+                    <span class="thumb-label">Featured</span>
+                    <img src="images/city-mountain.png" alt="City near a mountain">
+                    <figcaption>City by the Mountains</figcaption>
+                </figure>
+
+                <figure class="thumb">
+                    <img src="images/canal-houses.png" alt="Colorful canal houses">
+                    <figcaption>Canal Houses</figcaption>
+                </figure>
+
+                <figure class="thumb tall-thumb">
+                    <img src="images/sunrise-city.png" alt="Sunrise over a city skyline">
+                    <figcaption>Sunrise Skyline</figcaption>
+                </figure>
+
+                <figure class="thumb">
+                    <img src="images/old-port.png" alt="Boats in an old port">
+                    <figcaption>Old Port Reflections</figcaption>
+                </figure>
+
+                <figure class="thumb wide-thumb">
+                    <img src="images/rooftop-view.png" alt="Wide rooftop view of a city">
+                    <figcaption>Rooftop Panorama</figcaption>
+                </figure>
+
+                <figure class="thumb">
+                    <img src="images/river-walk.png" alt="People walking next to a river in the city">
+                    <figcaption>River Walk</figcaption>
+                </figure>
+
+                <figure class="thumb">
+                    <img src="images/brick-street.png" alt="Brick buildings on a city street">
+                    <figcaption>Old House</figcaption>
+                </figure>
+
+                <figure class="thumb">
+                    <img src="images/night-tram.png" alt="Tram passing by at night">
+                    <figcaption>Night Tram</figcaption>
+                </figure>
+            </section>
+
+            <div class="question-box">
+                <p><strong>Which scene is your favorite?</strong><br>
+                Think about how color, light, and composition change the feeling of each photograph.</p>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>Urban Moments – Exploring the Beauty of Photography.</p>
+        </footer>
+
+        <a href="#top" class="back-to-top">Top</a>
+    </div>
+</body>
+</html>
